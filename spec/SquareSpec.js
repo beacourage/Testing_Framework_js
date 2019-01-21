@@ -14,7 +14,7 @@ describe('Square', function() {
   it('returns the size', function() {
     var square;
     square = new Square(10);
-    expect(square).toEqual(10);
+    expect(square.size).toEqual(10);
   });
-  
+
 });

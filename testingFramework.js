@@ -1,3 +1,4 @@
+"use strict"
 const describe = (desc, fn) => {
   console.log(desc)
   fn()
@@ -7,8 +8,8 @@ const it = (msg, fn) => describe('  ' + msg, fn)
 
 var assertion;
 
-function ExpectEquality(assertion, exp) {
-  if (exp === assertion) {
+function ExpectEquality(actual, expected) {
+  if (actual === expected) {
     console.log('pass');
     return true;
   } else {
@@ -17,13 +18,9 @@ function ExpectEquality(assertion, exp) {
   };
 };
 
-const expect = (exp) => {
-  return matchers(assertion)
-}
-
-const matchers = (exp) => ({
-  toEqual: (asssertion) => {
-    if (exp === assertion) {
+const expect = (actual) => ({
+  toEqual: (expected) => {
+    if (actual === expected) {
       console.log('pass')
       return true
     } else {
@@ -32,3 +29,20 @@ const matchers = (exp) => ({
     }
   }
 })
+
+// const expect = (actual) => {
+//   return matchers(actual)
+// }
+//
+// const matchers = (actual) => ({
+//   toEqual: (expected) => {
+//     if (actual === expected) {
+//       console.log('pass')
+//       return true
+//     } else {
+//       console.log('fail')
+//       return false
+//     }
+//   }
+// })
+//
