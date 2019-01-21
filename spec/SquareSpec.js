@@ -1,2 +1,7 @@
 describe('Square', function() {
-  it('throws an error if size is NaN', function () {
+  it('returns this size squared', function () {
+    var square;
+    square = new Square(5);
+    ExpectEquality(square.area(), 25)
+  });
+});
